@@ -174,11 +174,10 @@ export class ExposureNotificationService {
 
     const lastCheckPeriod = periodSinceEpoch(lastFetchDate || addDays(runningDate, -14), hoursPerPeriod);
     let runningPeriod = periodSinceEpoch(runningDate, hoursPerPeriod);
+
     while (runningPeriod > lastCheckPeriod) {
-      const zipFile = await this.backendInterface.retrieveDiagnosisKeys(runningPeriod).catch(() => null);
-      yield zipFile;
-      // yield await this.backendInterface.retrieveDiagnosisKeys(runningPeriod);
-      runningPeriod -= hoursPerPeriod;
+      yield await this.backendInterface.retrieveDiagnosisKeys(runningPeriod).catch(() => null);
+      runningPeriod -= 1;
     }
   }
 

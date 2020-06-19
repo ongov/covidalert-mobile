@@ -25,7 +25,7 @@ export const LastCheckedDisplay = () => {
 
   return (
     <Box marginTop="s">
-      <Text variant="smallText" color="bodyTextFaded" lineHeight={24} textAlign="center">
+      <Text variant="smallText" color="bodyText" lineHeight={24}>
         {text}
       </Text>
     </Box>

@@ -1,30 +1,28 @@
 {
   "Home": {
     "NoExposureDetected": "No exposure detected",
-    "NoExposureDetectedDetailed": "Based on your random IDs, you have not been near someone in the past 14 days who has tested positive for COVID-19.",
-    "ExposureDetected": "You have possibly been exposed to COVID-19",
-    "ExposureDetectedDetailed": "Based on your random IDs, you have been near someone in the past 14 days who tested positive for COVID-19.",
-    "SeeGuidance": "Read Canada COVID-19 guidance",
-    "GuidanceUrl": "https://www.canada.ca/en/public-health/services/publications/diseases-conditions/covid-19-how-to-isolate-at-home.html",
+    "NoExposureDetectedDetailed": "Based on your anonymous, random codes, you have not been near someone in the past 14 days who has tested positive for COVID-19.",
+    "ExposureDetected": "You have been exposed to COVID-19",
+    "ExposureDetectedDetailed": "Based on your anonymous, random codes, you have been near someone in the past 14 days who tested positive for COVID-19.",
+    "FindAssessmentCentre": "Find an assessment centre",
+    "AssessmentCentreUrl": "https://covid-19.ontario.ca/covid-19-assessment-centres",
     "SignalDataShared": "Thank you for helping to slow the spread",
     "SignalDataSharedDetailed": {
-      "One": "You will receive a notification asking you to share your random IDs each day for the next {number} day.",
-      "Other": "You will receive a notification asking you to share your random IDs each day for the next {number} days."
+      "One": "You will receive a notification asking you to share your anonymous, random codes each day for the next {number} days.",
+      "Other": "You will receive a notification asking you to share your anonymous, random codes each day for the next {number} days."
     },
-    "SignalDataSharedCTA": "Track your symptoms",
-    "SymptomTrackerUrl": "https://ca.thrive.health/covid19app/action/88a5e9a7-db9e-487b-bc87-ce35035f8e5c?from=/home&navigateTo=/tracker/complete",
-    "DailyShare": "Share your new random IDs",
-    "DailyShareDetailed": "Sharing your data helps others to know if they have possibly been exposed to COVID-19.",
-    "ShareRandomIDsCTA": "Share your random IDs",
+    "DailyShare": "Share your new anonymous, random codes",
+    "DailyShareDetailed": "Sharing your codes helps other app users know if they have been exposed to COVID-19.",
+    "ShareRandomIDsCTA": "Share your codes",
     "BluetoothDisabled": "Bluetooth is off",
-    "EnableBluetoothCTA": "Bluetooth is used to collect and share random IDs needed for COVID Shield to work.",
+    "EnableBluetoothCTA": "Bluetooth is needed for CovidAlert to work. It’s used to collect and share users’ anonymous, random codes.",
     "TurnOnBluetooth": "Turn on Bluetooth",
     "ExposureNotificationsDisabled": "Exposure notifications are off",
-    "ExposureNotificationsDisabledDetailed": "Exposure notifications are needed for COVID Shield to work.",
+    "ExposureNotificationsDisabledDetailed": "Exposure notifications are needed for CovidAlert to work.",
     "EnableExposureNotificationsCTA": "Turn on exposure notifications",
     "NoConnectivity": "No internet connection",
-    "NoConnectivityDetailed": "COVID Shield needs internet access to continue checking for potential exposure.",
-    "AppName": "COVID Shield",
+    "NoConnectivityDetailed": "CovidAlert needs internet access to continue checking for potential exposure.",
+    "AppName": "CovidAlert",
     "ExternalLinkHint": "Opens in a new window",
     "LastCheckedMinutes": {
       "One": "Last checked {number} minute ago",
@@ -40,7 +38,7 @@
     }
   },
   "OverlayClosed": {
-    "SystemStatus": "COVID Shield is ",
+    "SystemStatus": "CovidAlert is ",
     "SystemStatusOn": "ON",
     "SystemStatusOff": "OFF",
     "NotificationStatus": "Push notifications are ",
@@ -50,25 +48,29 @@
   "OverlayOpen": {
     "BluetoothCardStatus": "Bluetooth is ",
     "BluetoothCardStatusOff": "OFF",
-    "BluetoothCardBody": "Bluetooth is used to collect and share random IDs needed for COVID Shield to work.",
+    "BluetoothCardBody": "Bluetooth is needed for COVID Alert to work. It’s used to collect and share users’ anonymous, random codes.",
     "BluetoothCardAction": "Turn on Bluetooth",
-    "EnterCodeCardTitle": "COVID Shield code",
-    "EnterCodeCardBody": "Has a health care professional asked you to enter a COVID Shield code?",
+    "EnterCodeCardTitle": "If you test positive for COVID-19 and want to anonymously notify other app users:",
+    "EnterCodeCardBody": "1. Login to the ",
+    "TestResultsViewer": "Test Results Viewer",
+    "TestResultsViewerUrl": "https://covid19results.ehealthontario.ca:4443/agree",
+    "EnterCodeCardBody1": "2. Go to your test results page",
+    "EnterCodeCardBody2": "3. Copy the COVID Alert number",
     "EnterCodeCardAction": "Enter code",
     "NotificationCardStatus": "Push notifications are ",
     "NotificationCardStatusOff": "OFF",
-    "NotificationCardBody": "You will not receive push notifications if you have possibly been exposed to COVID-19. Timely notification of potential exposure is important in helping to slow the spread of COVID-19.",
+    "NotificationCardBody": "You will not receive push notifications if you have possibly been exposed to COVID-19. Timely notification is important in helping to slow the spread.",
     "NotificationCardAction": "Turn on push notifications",
     "ExposureNotificationCardStatus": "Exposure notifications are ",
     "ExposureNotificationCardStatusOff": "OFF",
-    "ExposureNotificationCardBody": "Exposure notifications are needed for COVID Shield to work.",
+    "ExposureNotificationCardBody": "Exposure notifications are needed for CovidAlert to work. ",
     "ExposureNotificationCardAction": "Turn on exposure notifications"
   },
   "Info": {
-    "CheckSymptoms": "Check symptoms",
-    "SymptomsUrl": "https://ca.thrive.health/covid19/en",
-    "TellAFriend": "Share app",
-    "LearnMore": "How COVID Shield works",
+    "TakeSelfAssessment": "Take the self-assessment",
+    "SelfAssessmentUrl": "https://covid-19.ontario.ca/self-assessment/",
+    "Shareapp": "Share the app",
+    "LearnMore": "How CovidAlert works",
     "ChangeLanguage": "Change language",
     "Privacy": "Read privacy policy"
   },
@@ -82,44 +84,42 @@
     "PtBRShort": "Portuguese (Brazil)",
     "Close": "Back"
   },
-  "Tutorial": {
-    "step-1Title": "How COVID Shield works",
-    "step-1": "Your phone uses Bluetooth to collect and share random IDs with phones near you with COVID Shield installed. These IDs are stored securely on each phone.",
-    "step-2Title": "If you have potentially been exposed to COVID-19",
-    "step-2": "You will receive a notification if you have been near someone in the past 14 days who has tested positive for COVID-19.",
-    "step-3Title": "If you test positive for COVID-19",
-    "step-3": "Anonymously notify others who have been near you in the past 14 days that they have possibly been exposed.",
-    "ActionBack": "Back",
-    "ActionNext": "Next",
-    "ActionEnd": "Done",
-    "Close": "Close"
-  },
   "Sharing": {
     "Title": "Share app",
-    "SubTitle": "Every person using COVID Shield helps to slow the spread of COVID-19. Sharing this app will not share any personal data.",
+    "SubTitle": "Every person using COVID Alert helps to slow the spread of COVID-19. Sharing this app will not share any personal data.",
     "Platform-messages": "Share to Messages",
     "Platform-instagram": "Share to Instagram",
     "More": "More apps",
-    "Message": "Join me in helping to slow the spread of COVID-19. Download the COVID Shield app: https://covidshield.app",
-    "InstagramImageUrl": "https://user-images.githubusercontent.com/5274722/84658989-b9ba6b00-aee4-11ea-84d4-d840527467b4.png",
+    "Message": "Join me in helping to slow the spread of COVID-19. Download the CovidAlert app: https://covid-19.ontario/covidalert",
     "Close": "Close"
   },
   "Onboarding": {
+    "Body": "Help Ontario slow the spread.",
+    "Body2": "Get notified if you have been exposed to COVID-19, and notify others if you test positive.",
     "ActionNext": "Next",
     "ActionEnd": "Done",
     "ActionBack": "Back"
   },
-  "OnboardingPermissions": {
-    "Title": "Your data is private",
-    "Body": "COVID Shield takes a privacy-first approach to exposure notification.",
-    "Body2": "Your random IDs are stored exclusively on your phone unless you choose to share them.",
-    "Body3": "Use of COVID Shield is voluntary. You can delete your random IDs at any time."
+  "OnboardingHowItWorks": {
+    "Title": "How it works",
+    "Body": "Using Bluetooth, Covid Alert shares anonymous, randomly generated codes, with other app users nearby.",
+    "Body2": "If you have been exposed to COVID-19 by another app user in the past 14 days, you will receive an anonymous notification.",
+    "Body3": "If you test positive for COVID-19, you can anonymously notify others who have been near you, in the past 14 days."
   },
-  "OnboardingStart": {
-    "Title": "Keep yourself and others safe",
-    "Body1": "Get notified if you have potentially been exposed to COVID-19.",
-    "Body2": "If you test positive for COVID-19, you can choose to anonymously share your data so others can be notified of possible exposure.",
-    "TutorialAction": "Learn how COVID Shield works"
+  "OnboardingLocation": {
+    "Title": "Your location is not tracked",
+    "Body1": "COVID Alert does not know:",
+    "Body2": "your location",
+    "Body3": "where you are or have been"
+  },
+  "OnboardingPrivacy": {
+    "Title": "Your data and identity are private",
+    "Body1": "COVID Alert does not know:",
+    "Body2": "who you are",
+    "Body3": "any identifiable information about you",
+    "Body4": "your medical information, unless you choose to share it anonymously, if you test positive",
+    "Body5": "The codes are generated randomly and never shared without your permission",
+    "Body6": "Use of the app is voluntary. You can delete it at any time."
   },
   "Privacy": {
     "Title": "Privacy policy",
@@ -127,41 +127,40 @@
   },
   "ThankYou": {
     "Title": "Thank you for helping",
-    "Body": "Exposure notifications are on. You will receive a notification if COVID Shield detects that you have possibly been exposed to COVID-19.",
-    "Dismiss": "Dismiss"
+    "Body": "Exposure notifications are on. You will receive a notification if CovidAlert detects that you have been exposed to COVID-19.",
+    "Dismiss": "Close"
   },
   "DataUpload": {
     "Cancel": "Cancel",
-    "FormIntro": "Please enter your 8 digit COVID Shield code.",
-    "Action": "Submit code",
-    "InputLabel": "Covid Shield code",
-    "InfoSmall": "Your random IDs will not be shared unless you give permission in the next step.",
-    "ConsentTitle": "Share your random IDs",
-    "ConsentBody": "You have been granted access by a health care professional to share the random IDs stored on your phone.",
-    "ConsentBody2": "If you share your random IDs, others with COVID Shield who have been near you in the past 14 days will receive a notification that they have possibly been exposed. This notification will not include any information about you.",
-    "ConsentBody3": "You will be notified once per day when new random IDs are available to be shared. You must grant permission each time for the random IDs to be shared. Sharing is voluntary.",
+    "FormIntro": "Please enter your 8-digit CovidAlert number to verify that you’ve received a positive test result.",
+    "Action": "Submit",
+    "InputLabel": "Covid Alert code",
+    "InfoSmall": "We will not share your information unless you give permission in the next step.",
+    "ConsentTitle": "Share your randomly generated codes",
+    "ConsentBody": "Do we have your permission today, to share your anonymous, randomly generated codes with other app users who have been near you in the past 14 days? None of your personal information will be shared.",
+    "ConsentBody2": "You will be asked once per day to share your codes. You must grant permission each time. Sharing is voluntary.",
     "PrivacyPolicyLink": "View privacy policy",
     "ConsentAction": "I agree",
-    "ShareToast": "Random IDs shared successfully",
+    "ShareToast": "Random codes submitted",
     "ErrorTitle": "Code not recognized",
-    "ErrorBody": "Your COVID Shield code could not be recognized. Please try again.",
+    "ErrorBody": "Your CovidAlert code could not be recognized. Please try again.",
     "ErrorAction": "OK"
   },
   "Notification": {
-    "ExposedMessageTitle": "You have possibly been exposed to COVID-19",
-    "ExposedMessageBody": "Based on your random IDs, you have been near someone in the past 14 days who tested positive for COVID-19.",
-    "OffMessageTitle": "COVID Shield is off",
-    "OffMessageBody": "Turn on COVID Shield to get notified if you have potentially been exposed to COVID-19.",
-    "DailyUploadNotificationTitle": "Share your new random IDs",
-    "DailyUploadNotificationBody": "Sharing your data helps others to know if they have possibly been exposed to COVID-19."
+    "ExposedMessageTitle": "You have been exposed to COVID-19",
+    "ExposedMessageBody": "Based on your anonymous, random codes, you have been near someone in the past 14 days who tested positive for COVID-19.",
+    "OffMessageTitle": "CovidAlert is off",
+    "OffMessageBody": "Turn on CovidAlert to get notified if you have potentially been exposed to COVID-19.",
+    "DailyUploadNotificationTitle": "Would you like to share your random codes today?",
+    "DailyUploadNotificationBody": "Sharing your codes helps other app users know if they have been exposed to COVID-19."
   },
   "Partners": {
     "Label": "Developed in partnership with"
   },
   "BottomSheet": {
     "Collapse": "Close",
-    "OnStatus": "Covid Shield is on, Tap for more information",
-    "OffStatus": "Covid Shield is off, Tap for more information"
+    "OnStatus": "CovidAlert is on, Tap for more information",
+    "OffStatus": "CovidAlert is off, Tap for more information"
   },
   "RegionPicker": {
     "Title": "Select your province or territory",

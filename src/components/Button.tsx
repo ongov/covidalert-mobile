@@ -1,5 +1,5 @@
 import React from 'react';
-import {useTheme} from '@shopify/restyle';
+import {useTheme, SpacingProps} from '@shopify/restyle';
 import {
   Platform,
   StyleSheet,
@@ -35,7 +35,13 @@ export const Button = ({
   disabled,
   loading,
   externalLink,
-}: ButtonProps) => {
+  paddingHorizontal="m",
+  paddingVertical="none",
+  paddingBottom="none",
+  paddingTop="none",
+  paddingLeft="none",
+  paddingRight="none",
+}: ButtonProps & SpacingProps<Theme>) => {
   const [i18n] = useI18n();
   const theme = useTheme<Theme>();
   const variantProps = theme.buttonVariants[variant];
@@ -54,7 +60,7 @@ export const Button = ({
         accessibilityRole: 'link' as AccessibilityRole,
       }
     : {};
-  const externalArrowIcon = textColor === palette.white ? 'icon-external-arrow-light' : 'icon-external-arrow';
+  const externalArrowIcon = textColor === palette.systemWhite ? 'icon-external-arrow-light' : 'icon-external-arrow';
 
   const content = (
     <Box
@@ -62,7 +68,12 @@ export const Button = ({
       alignItems="center"
       justifyContent="center"
       style={{backgroundColor: color, minHeight: height, borderWidth, borderColor: buttonColor}}
-      paddingHorizontal="m"
+      paddingHorizontal={paddingHorizontal}
+      paddingVertical={paddingVertical}
+      paddingTop={paddingTop}
+      paddingBottom={paddingBottom}
+      paddingLeft={paddingLeft}
+      paddingRight={paddingRight}
       flexDirection="row"
     >
       {loading ? (

@@ -12,10 +12,7 @@ export const BluetoothDisabledView = () => {
   }, []);
 
   return (
-    <BaseHomeView>
-      <Box marginBottom="l">
-        <Icon name="icon-bluetooth-disabled" size={44} />
-      </Box>
+    <BaseHomeView iconName="ontario-icon-bluetooth-disabled">
       <Text textAlign="center" variant="bodyTitle" color="bodyText" marginBottom="l" accessibilityRole="header">
         {i18n.translate('Home.BluetoothDisabled')}
       </Text>
@@ -24,7 +21,12 @@ export const BluetoothDisabledView = () => {
       </Text>
       <LastCheckedDisplay />
       <Box alignSelf="stretch" marginTop="l">
-        <Button text={i18n.translate('Home.TurnOnBluetooth')} variant="bigFlat" onPress={toSettings} />
+        <Button 
+        text={i18n.translate('Home.TurnOnBluetooth')} 
+        variant="bigFlatWhite"
+        color="secondaryBtnBorder"
+        onPress={toSettings}
+      />
       </Box>
     </BaseHomeView>
   );

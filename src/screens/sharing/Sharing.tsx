@@ -1,13 +1,13 @@
-import React, {useCallback, useMemo} from 'react';
-import {useNavigation} from '@react-navigation/native';
-import {ShareablePlatform, shareContent, shareInstagramStory, shareMessages, useShareablePlatforms} from 'bridge/Share';
-import {Box, Icon, Text, Toolbar} from 'components';
-import {Image, StyleSheet, TouchableOpacity, View, Platform, ScrollView} from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
-import {Theme} from 'shared/theme';
-import {useI18n} from '@shopify/react-i18n';
+import React, { useCallback, useMemo } from 'react';
+import { useNavigation } from '@react-navigation/native';
+import { ShareablePlatform, shareContent, shareInstagramStory, shareMessages, useShareablePlatforms } from 'bridge/Share';
+import { Box, Icon, Text, Toolbar } from 'components';
+import { Image, StyleSheet, TouchableOpacity, View, Platform, ScrollView } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { Theme } from 'shared/theme';
+import { useI18n } from '@shopify/react-i18n';
 import OnboardingBg from 'assets/onboarding-bg.svg';
-import {useTheme} from '@shopify/restyle';
+import { useTheme } from '@shopify/restyle';
 
 const ICONS = {
   instagram: Platform.select({
@@ -50,7 +50,7 @@ export const SharingScreen = () => {
           }
         },
       }),
-      {} as {[key in ShareablePlatform]: () => void},
+      {} as { [key in ShareablePlatform]: () => void },
     );
   }, [i18n, platforms, theme.colors.mainBackground]);
   const onShareMore = useCallback(() => {
@@ -62,10 +62,9 @@ export const SharingScreen = () => {
       <SafeAreaView style={styles.flex}>
         <Toolbar
           title={i18n.translate('Sharing.Title')}
-          navIcon="icon-back-arrow"
           navText={i18n.translate('Sharing.Close')}
           navLabel={i18n.translate('Sharing.Close')}
-          onIconClicked={close}
+          onBackClicked={close}
         />
         <Box flex={1}>
           <ScrollView>
@@ -78,16 +77,19 @@ export const SharingScreen = () => {
               </Text>
             </Box>
             <Box padding="m">
-              <Box
-                paddingHorizontal="s"
-                paddingRight="m"
-                borderRadius={10}
-                backgroundColor="infoBlockNeutralBackground"
-              >
+              <Box>
                 {platforms.map(platform => (
                   <React.Fragment key={platform}>
-                    <TouchableOpacity onPress={onShareByPlatform[platform]} accessibilityRole="button">
-                      <Box paddingVertical="s" flexDirection="row" alignItems="center" justifyContent="space-between">
+                    <TouchableOpacity onPress={onShareByPlatform[platform]}>
+                      <Box
+                        backgroundColor="infoBlockNeutralBackground"
+                        paddingHorizontal="m"
+                        marginTop="xs"
+                        borderRadius={4}
+                        paddingVertical="s"
+                        flexDirection="row"
+                        alignItems="center"
+                        justifyContent="space-between">
                         <Image style={styles.icon} source={ICONS[platform]} />
                         <Text variant="bodyText" marginVertical="s" marginLeft="s" color="overlayBodyText">
                           {i18n.translate(`Sharing.Platform-${platform}`)}
@@ -100,8 +102,16 @@ export const SharingScreen = () => {
                     <Box height={1} marginHorizontal="-m" backgroundColor="overlayBackground" />
                   </React.Fragment>
                 ))}
-                <TouchableOpacity onPress={onShareMore} accessibilityRole="button">
-                  <Box paddingVertical="s" flexDirection="row" alignItems="center" justifyContent="space-between">
+                <TouchableOpacity onPress={onShareMore}>
+                  <Box
+                    backgroundColor="infoBlockNeutralBackground"
+                    paddingHorizontal="m"
+                    marginTop="xs"
+                    borderRadius={4}
+                    paddingVertical="s"
+                    flexDirection="row"
+                    alignItems="center"
+                    justifyContent="space-between">
                     <View style={styles.moreIcon}>
                       <Icon size={16} name="icon-ellipsis" />
                     </View>
@@ -139,7 +149,7 @@ const styles = StyleSheet.create({
   moreIcon: {
     height: 30,
     width: 30,
-    borderRadius: Platform.select({android: 0, ios: 7}),
+    borderRadius: Platform.select({ android: 0, ios: 7 }),
     backgroundColor: 'rgba(196, 196, 196, 0.3)',
     alignItems: 'center',
     justifyContent: 'center',

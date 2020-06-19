@@ -56,10 +56,9 @@ export const TutorialScreen = () => {
       <SafeAreaView style={styles.flex}>
         <Toolbar
           title=""
-          navIcon="icon-back-arrow"
           navText={i18n.translate('Tutorial.Close')}
           navLabel={i18n.translate('Tutorial.Close')}
-          onIconClicked={close}
+          onBackClicked={close}
         />
         {carouselVisible && (
           <Carousel

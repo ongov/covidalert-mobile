@@ -3,6 +3,7 @@ import {StatusBar, Platform} from 'react-native';
 import {enableScreens} from 'react-native-screens';
 import {useNavigationState} from '@react-navigation/native';
 import {createNativeStackNavigator, NativeStackNavigationOptions} from 'react-native-screens/native-stack';
+import {SplashScreen} from 'screens/splash';
 import {HomeScreen} from 'screens/home';
 import {TutorialScreen} from 'screens/tutorial';
 import {DataSharingScreen} from 'screens/datasharing';
@@ -10,7 +11,6 @@ import {PrivacyScreen} from 'screens/privacy';
 import {SharingScreen} from 'screens/sharing';
 import {OnboardingScreen} from 'screens/onboarding';
 import {LanguageScreen} from 'screens/language';
-import {useStorage} from 'services/StorageService';
 import {RegionPickerScreen} from 'screens/regionPicker';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 
@@ -55,6 +55,7 @@ export interface MainStackParamList extends Record<string, object | undefined> {
   Tutorial: undefined;
 }
 
+const SplashScreenWithNavBar = withLightNav(SplashScreen);
 const HomeScreenWithNavBar = withLightNav(HomeScreen);
 const RegionPickerScreenWithNavBar = withDarkNav(RegionPickerScreen);
 const OnboardingScreenWithNavBar = withDarkNav(OnboardingScreen);
@@ -71,7 +72,7 @@ const DEFAULT_SCREEN_OPTIONS: NativeStackNavigationOptions = {
 
 const OnboardingStack = createNativeStackNavigator();
 const OnboardingNavigator = () => {
-  const {region} = useStorage();
+  const region = 'ON';
   return (
     <OnboardingStack.Navigator
       screenOptions={{stackAnimation: 'fade', headerShown: false}}
@@ -84,12 +85,12 @@ const OnboardingNavigator = () => {
 };
 
 const MainNavigator = () => {
-  const {isOnboarding} = useStorage();
   return (
     <MainStack.Navigator
       screenOptions={DEFAULT_SCREEN_OPTIONS}
-      initialRouteName={isOnboarding ? 'OnboardingNavigator' : 'Home'}
+      initialRouteName={"Splash"}
     >
+      <MainStack.Screen name="Splash" component={SplashScreenWithNavBar} />
       <MainStack.Screen name="Home" component={HomeScreenWithNavBar} />
       <MainStack.Screen name="OnboardingNavigator" component={OnboardingNavigator} />
       <MainStack.Screen name="Tutorial" component={TutorialScreenWithNavBar} />

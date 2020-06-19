@@ -17,11 +17,10 @@ export const PrivacyScreen = () => {
     <Box backgroundColor="overlayBackground" flex={1}>
       <SafeAreaView style={styles.flex}>
         <Toolbar
-          title={i18n.translate('Privacy.Title')}
-          navIcon="icon-back-arrow"
+          title=''
           navText={i18n.translate('Privacy.Close')}
           navLabel={i18n.translate('Privacy.Close')}
-          onIconClicked={close}
+          onBackClicked={close}
         />
         <ScrollView style={styles.flex}>
           <Box padding="m">
@@ -44,6 +43,6 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   bodyContent: {
-    fontFamily: 'Nunito',
+    fontFamily: 'Raleway',
   },
 });

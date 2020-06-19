@@ -9,33 +9,33 @@ import {useStartExposureNotificationService} from 'services/ExposureNotification
 import {useStorage} from 'services/StorageService';
 import {useMaxContentWidth} from 'shared/useMaxContentWidth';
 
-import {Permissions} from './views/Permissions';
+import {Privacy} from './views/Privacy';
 import {Start} from './views/Start';
+import {HowItWorks} from './views/HowItWorks';
+ 
+type ViewKey = 'start' | 'privacy' | 'howItWorks';
 
-type ViewKey = 'start' | 'permissions';
-
-const contentData: ViewKey[] = ['start', 'permissions'];
+const contentData: ViewKey[] = ['howItWorks', 'start', 'privacy'];
 const viewComponents = {
+  howItWorks: HowItWorks,
   start: Start,
-  permissions: Permissions,
+  privacy: Privacy
 };
 
 export const OnboardingScreen = () => {
   const [i18n] = useI18n();
   const [currentIndex, setCurrentIndex] = useState(0);
   const carouselRef = useRef(null);
-  const {setOnboarded} = useStorage();
   const navigation = useNavigation();
   const startExposureNotificationService = useStartExposureNotificationService();
 
   const handlePermissions = useCallback(async () => {
     await startExposureNotificationService();
-    setOnboarded(true);
     navigation.reset({
       index: 0,
       routes: [{name: 'Home'}],
     });
-  }, [navigation, setOnboarded, startExposureNotificationService]);
+  }, [navigation, startExposureNotificationService]);
 
   const maxWidth = useMaxContentWidth();
 
@@ -70,7 +70,7 @@ export const OnboardingScreen = () => {
   const isStart = currentIndex === 0;
   const isEnd = currentIndex === contentData.length - 1;
 
-  const BackButton = <Button text={i18n.translate('Onboarding.ActionBack')} variant="subduedText" onPress={prevItem} />;
+  const BackButton = <Button text={i18n.translate('Onboarding.ActionBack')} variant="blackText" onPress={prevItem} />;
   const LanguageButton = <LanguageToggle />;
 
   const [layout, setLayout] = useState<LayoutRectangle | undefined>();

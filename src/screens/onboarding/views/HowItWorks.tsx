@@ -1,13 +1,16 @@
 import React from 'react';
 import {ScrollView, StyleSheet} from 'react-native';
-import {Box, Text} from 'components';
+import {Box, Text, Icon} from 'components';
 import {useI18n} from '@shopify/react-i18n';
 
-export const Permissions = () => {
+export const HowItWorks = () => {
   const [i18n] = useI18n();
   return (
     <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.content}>
       <Box paddingHorizontal="xl">
+        <Box alignSelf="center">
+          <Icon name="ontario-icon-bluetooth-onboarding" size={300}/>
+        </Box>
         <Box paddingHorizontal="l" marginTop="m">
           <Text
             variant="bodyTitle"
@@ -17,22 +20,22 @@ export const Permissions = () => {
             textAlign="center"
             accessibilityRole="header"
           >
-            {i18n.translate('OnboardingPermissions.Title')}
+            {i18n.translate('OnboardingHowItWorks.Title')}
           </Text>
         </Box>
         <Box marginBottom="l">
-          <Text variant="bodyText" color="overlayBodyText" textAlign="center">
-            {i18n.translate('OnboardingPermissions.Body')}
+          <Text variant="bodyText" color="overlayBodyText">
+            {i18n.translate('OnboardingHowItWorks.Body')}
           </Text>
         </Box>
         <Box marginBottom="l">
-          <Text variant="bodyText" color="overlayBodyText" textAlign="center">
-            {i18n.translate('OnboardingPermissions.Body2')}
+          <Text variant="bodyText" color="overlayBodyText">
+            {i18n.translate('OnboardingHowItWorks.Body2')}
           </Text>
         </Box>
         <Box marginBottom="l">
-          <Text variant="bodyText" color="overlayBodyText" textAlign="center">
-            {i18n.translate('OnboardingPermissions.Body3')}
+          <Text variant="bodyText" color="overlayBodyText">
+            {i18n.translate('OnboardingHowItWorks.Body3')}
           </Text>
         </Box>
       </Box>

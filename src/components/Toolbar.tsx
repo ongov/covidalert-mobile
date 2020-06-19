@@ -1,58 +1,69 @@
-import React, {useEffect} from 'react';
-import {BackHandler, Platform, StyleSheet} from 'react-native';
+import React, { useEffect } from 'react';
+import { BackHandler, Platform, StyleSheet } from 'react-native';
 
-import {Box} from './Box';
-import {Button} from './Button';
-import {IconProps} from './Icon';
-import {Text} from './Text';
-import {TouchableIcon} from './TouchableIcon';
+import { Box } from './Box';
+import { Button } from './Button';
+import { IconProps } from './Icon';
+import { Text } from './Text';
+import { TouchableIcon } from './TouchableIcon';
 
 export interface ToolbarProps {
   title: string;
-  onIconClicked(): void;
-  navText?: string /* iOS only */;
-  navIcon?: IconProps['name'] /* Android only */;
+  onBackClicked(): void;
+  navText?: string;
   navLabel?: string;
 }
 
-export const Toolbar = ({title, navText, navIcon, navLabel, onIconClicked}: ToolbarProps) => {
+export const Toolbar = ({ title, navText, navLabel, onBackClicked }: ToolbarProps) => {
   useEffect(() => {
     if (Platform.OS !== 'android') {
       return;
     }
     const subscription = BackHandler.addEventListener('hardwareBackPress', () => {
-      onIconClicked();
+      onBackClicked();
       return true;
     });
     return () => subscription.remove();
-  }, [onIconClicked]);
+  }, [onBackClicked]);
 
   if (Platform.OS === 'android') {
     return (
-      <Box flex={1} flexDirection="row" alignItems="center" justifyContent="flex-start" padding="none" maxHeight={56}>
-        {navIcon && <TouchableIcon iconName={navIcon} label={navLabel} onPress={onIconClicked} />}
-        <Box padding="m">
-          <Text variant="bodySubTitle" color="overlayBodyText" accessibilityRole="header">
-            {title}
-          </Text>
-        </Box>
+      <Box
+        flex={1}
+        flexDirection="column"
+        alignItems="flex-start"
+        justifyContent="flex-start"
+        padding="s"
+        maxHeight={title !== '' ? 150 : 60}>
+        {navText && <Button paddingLeft="m" variant="text" text={navText} onPress={onBackClicked} />}
+        {title !== '' && (
+          <Box padding="m">
+            <Text variant="bodyTitle" color="overlayBodyText" accessibilityRole="header">
+              {title}
+            </Text>
+          </Box>
+        )}
       </Box>
     );
   }
   return (
-    <Box flexDirection="row" alignItems="center" minHeight={56}>
+    <Box
+      flexDirection="column"
+      alignItems="flex-start"
+      padding="m"
+      minHeight={title !== '' ? 150 : 60}>
       <Box>
-        <Button text={navText} variant="text" onPress={onIconClicked} />
+        <Button text={navText} variant="text" onPress={onBackClicked} />
       </Box>
       {title !== '' && (
-        <Box flex={1} justifyContent="center" minWidth={100}>
-          <Text variant="bodySubTitle" color="overlayBodyText" textAlign="center" accessibilityRole="header">
+        <Box paddingTop="m">
+          <Text variant="bodyTitle" color="overlayBodyText" accessibilityRole="header">
             {title}
           </Text>
         </Box>
       )}
       <Box style={styles.invisible}>
-        <Button disabled text={navText} variant="text" onPress={() => {}} />
+        <Button disabled text={navText} variant="text" onPress={() => { }} />
       </Box>
     </Box>
   );

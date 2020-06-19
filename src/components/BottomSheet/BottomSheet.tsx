@@ -80,7 +80,7 @@ const BottomSheet = ({children, collapsedContent, extraContent}: BottomSheetProp
     <>
       <BottomSheetRaw
         ref={bottomSheetRef}
-        borderRadius={32}
+        borderRadius={4}
         enabledContentGestureInteraction
         renderContent={renderContent}
         onOpenEnd={onOpenEnd}

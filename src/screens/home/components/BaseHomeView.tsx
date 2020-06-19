@@ -3,16 +3,17 @@ import {StyleSheet, ScrollView} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import LottieView from 'lottie-react-native';
 import {useReduceMotionPreference} from 'shared/useReduceMotionPreference';
-import {Box, Header} from 'components';
+import {Box, Header, Icon, IconName} from 'components';
 import {useOrientation} from 'shared/useOrientation';
 
 interface BaseHomeViewProps {
   children?: React.ReactNode;
   animationSource?: string;
   animationPauseFrame?: number;
+  iconName?: IconName;
 }
 
-export const BaseHomeView = ({children, animationSource, animationPauseFrame}: BaseHomeViewProps) => {
+export const BaseHomeView = ({children, animationSource, animationPauseFrame, iconName}: BaseHomeViewProps) => {
   const {
     orientation,
     scaledSize: {width: viewportWidth, height: viewportHeight},
@@ -43,8 +44,11 @@ export const BaseHomeView = ({children, animationSource, animationPauseFrame}: B
         ]}
         bounces={false}
       >
+        <Box marginBottom="xxl">         
+          <Icon name={iconName} size={110}/>
+        </Box>
         {animationSource && orientation === 'portrait' && (
-          <Box marginBottom="m">
+          <Box marginBottom="m">           
             <LottieView
               ref={animationRef}
               style={{
@@ -59,7 +63,7 @@ export const BaseHomeView = ({children, animationSource, animationPauseFrame}: B
             />
           </Box>
         )}
-        <Box flex={1} alignItems="center" justifyContent="center" marginHorizontal="xl">
+        <Box marginHorizontal="xl">
           {children}
         </Box>
       </ScrollView>
@@ -77,6 +81,7 @@ const styles = StyleSheet.create({
   scrollContainer: {
     minHeight: '90%',
     alignItems: 'center',
+    justifyContent: 'center'
   },
   animationBase: {
     marginBottom: -100,

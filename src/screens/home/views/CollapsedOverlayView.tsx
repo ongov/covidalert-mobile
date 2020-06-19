@@ -20,10 +20,12 @@ export const CollapsedOverlayView = ({status, notificationWarning}: Props) => {
       </Box>
       {notificationWarning && (
         <Box
-          backgroundColor="infoBlockNeutralBackground"
-          borderRadius={10}
+          backgroundColor="errorBackground"
+          borderLeftWidth={2}
+          borderColor="errorBorder"
           padding="m"
           flex={1}
+          marginHorizontal="s"
           marginBottom="xs"
           justifyContent="center"
           flexDirection="row"
@@ -31,7 +33,7 @@ export const CollapsedOverlayView = ({status, notificationWarning}: Props) => {
           <Text variant="overlayTitle" color="overlayBodyText" accessibilityRole="header">
             {i18n.translate('OverlayClosed.NotificationStatus')}
           </Text>
-          <Text variant="overlayTitle" color="overlayBodyText" fontFamily="Nunito-Bold" accessibilityRole="header">
+          <Text variant="overlayTitle" color="overlayBodyText" fontFamily="Raleway-Bold" accessibilityRole="header">
             {i18n.translate('OverlayClosed.NotificationStatusOff')}
           </Text>
         </Box>

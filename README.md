@@ -1,5 +1,7 @@
 # COVID Shield Mobile App
 
+This code reflects foundational work by the Ontario Digital Service on the COVID Shield code base. Note that this code contains some known issues which are pending resolution as part of the release of Canada’s national exposure notification app.
+
 ![Lint + Typscript](https://github.com/CovidShield/mobile/workflows/CI/badge.svg)
 
 This repository implements a React Native _client application_ for Apple/Google's [Exposure

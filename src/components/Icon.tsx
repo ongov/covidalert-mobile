@@ -27,6 +27,17 @@ import SheetHandleBar from 'assets/sheet-handle-bar.svg';
 import ShieldActive from 'assets/shield-active.svg';
 import ShieldCovid from 'assets/shield-covid.svg';
 import ShieldDisabled from 'assets/shield-disabled.svg';
+import OntarioCheckmark from 'assets/ontario-icon-checkmark.svg';
+import OntarioHand from 'assets/ontario-icon-hand.svg';
+import OntarioNotificationsDisabled from 'assets/ontario-icon-notifications-disabled.svg';
+import OntarioBluetoothDisabled from 'assets/ontario-icon-bluetooth-disabled.svg';
+import OntarioInternetDisabled from 'assets/ontario-icon-internet-disabled.svg';
+import OntarioOnboardingBluetooth from 'assets/ontario-icon-bluetooth-onboarding.svg';
+import OntarioLocation from 'assets/ontario-icon-location.svg';
+import OntarioLock from 'assets/ontario-icon-lock.svg';
+import OntarioSuccess from 'assets/ontario-icon-success.svg';
+import OntarioSplashImage from 'assets/ontario-icon-splash-image.svg';
+import OntarioLogo from 'assets/ontario-icon-logo.svg';
 
 const ICONS = {
   'icon-back-arrow': IconBackArrow,
@@ -57,16 +68,27 @@ const ICONS = {
   'shield-disabled': ShieldDisabled,
   'shield-active': ShieldActive,
   'shield-covid': ShieldCovid,
+  'ontario-icon-checkmark': OntarioCheckmark,
+  'ontario-icon-hand': OntarioHand,
+  'ontario-icon-notifications-disabled': OntarioNotificationsDisabled,
+  'ontario-icon-bluetooth-disabled': OntarioBluetoothDisabled,
+  'ontario-icon-internet-disabled': OntarioInternetDisabled,
+  'ontario-icon-bluetooth-onboarding': OntarioOnboardingBluetooth,
+  'ontario-icon-location-onboarding': OntarioLocation,
+  'ontario-icon-lock': OntarioLock,
+  'ontario-icon-success': OntarioSuccess,
+  'ontario-icon-splash-image': OntarioSplashImage,
+  'ontario-icon-logo': OntarioLogo
 };
 
-type IconName = keyof typeof ICONS;
+export type IconName = keyof typeof ICONS;
 
 export interface IconProps {
-  name: IconName;
+  name: IconName | undefined;
   size?: number;
 }
 
 export const Icon = ({name, size = 24}: IconProps) => {
-  const IconImpl = ICONS[name];
+  const IconImpl = name !== undefined ? ICONS[name] : null;
   return IconImpl ? <IconImpl width={size} height={size} /> : null;
 };

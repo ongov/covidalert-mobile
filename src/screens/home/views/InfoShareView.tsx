@@ -10,8 +10,12 @@ interface InfoShareItemProps extends TouchableOpacityProps {
   icon: IconProps['name'];
 }
 const InfoShareItem = ({onPress, text, icon, ...touchableProps}: InfoShareItemProps) => (
-  <>
-    <TouchableOpacity onPress={onPress} accessibilityRole="button" {...touchableProps}>
+  <Box 
+    backgroundColor="infoBlockNeutralBackground" 
+    paddingHorizontal="m" 
+    marginTop="xs"
+    borderRadius={4}>
+    <TouchableOpacity onPress={onPress} {...touchableProps}>
       <Box paddingVertical="s" flexDirection="row" alignContent="center" justifyContent="space-between">
         <Text variant="bodyText" marginVertical="s" color="overlayBodyText">
           {text}
@@ -22,35 +26,35 @@ const InfoShareItem = ({onPress, text, icon, ...touchableProps}: InfoShareItemPr
       </Box>
     </TouchableOpacity>
     <Box height={1} marginHorizontal="-m" backgroundColor="overlayBackground" />
-  </>
+  </Box>
 );
 
 export const InfoShareView = () => {
   const [i18n] = useI18n();
   const navigation = useNavigation();
-  const onSymptomps = useCallback(() => {
-    Linking.openURL(i18n.translate('Info.SymptomsUrl')).catch(err => console.error('An error occurred', err));
+  const onSelfAssessment = useCallback(() => {
+    Linking.openURL(i18n.translate('Info.SelfAssessmentUrl')).catch(err => console.error('An error occurred', err));
   }, [i18n]);
   const onShare = useCallback(() => navigation.navigate('Sharing'), [navigation]);
   const onPrivacy = useCallback(() => navigation.navigate('Privacy'), [navigation]);
-  const onLearnMore = useCallback(() => navigation.navigate('Tutorial'), [navigation]);
+  const onLearnMore = useCallback(() => navigation.navigate('OnboardingNavigator'), [navigation]);
   const onLanguage = useCallback(() => navigation.navigate('LanguageSelect'), [navigation]);
 
   return (
     <>
-      <Box paddingHorizontal="m" borderRadius={10} backgroundColor="infoBlockNeutralBackground">
+      <Box>
         <InfoShareItem
-          onPress={onSymptomps}
-          text={i18n.translate('Info.CheckSymptoms')}
+          onPress={onSelfAssessment}
+          text={i18n.translate('Info.TakeSelfAssessment')}
           icon="icon-external-arrow"
-          accessibilityLabel={i18n.translate('Info.CheckSymptoms')}
+          accessibilityLabel={i18n.translate('Info.TakeSelfAssessment')}
           accessibilityRole="link"
           accessibilityHint={i18n.translate('Home.ExternalLinkHint')}
         />
-        <InfoShareItem onPress={onShare} text={i18n.translate('Info.TellAFriend')} icon="icon-share" />
+        <InfoShareItem onPress={onShare} text={i18n.translate('Info.Shareapp')} icon="icon-share" />
         <InfoShareItem onPress={onLearnMore} text={i18n.translate('Info.LearnMore')} icon="icon-chevron" />
       </Box>
-      <Box paddingHorizontal="m" borderRadius={10} backgroundColor="infoBlockNeutralBackground" marginTop="m">
+      <Box marginTop="s">
         <InfoShareItem onPress={onLanguage} text={i18n.translate('Info.ChangeLanguage')} icon="icon-chevron" />
         <InfoShareItem onPress={onPrivacy} text={i18n.translate('Info.Privacy')} icon="icon-chevron" />
       </Box>

@@ -41,24 +41,16 @@ export const ConsentView = ({onSuccess, onError}: Props) => {
     <>
       <ScrollView style={styles.flex}>
         <Box paddingHorizontal="l" marginBottom="m" marginTop="s" flexDirection="row">
-          <Icon name="icon-enter-code" />
           <Text variant="bodyText" color="overlayBodyText" marginLeft="m" marginRight="l">
             {i18n.translate('DataUpload.ConsentBody')}
           </Text>
         </Box>
-        <Box paddingHorizontal="l" marginBottom="m" flexDirection="row">
-          <Icon name="icon-notify" />
+        <Box paddingHorizontal="l" marginBottom="xl" flexDirection="row">
           <Text variant="bodyText" color="overlayBodyText" marginLeft="m" marginRight="l">
             {i18n.translate('DataUpload.ConsentBody2')}
           </Text>
         </Box>
-        <Box paddingHorizontal="l" marginBottom="m" flexDirection="row">
-          <Icon name="icon-notifications" />
-          <Text variant="bodyText" color="overlayBodyText" marginLeft="m" marginRight="l">
-            {i18n.translate('DataUpload.ConsentBody3')}
-          </Text>
-        </Box>
-        <Box paddingHorizontal="l" marginBottom="m">
+        <Box paddingHorizontal="l" marginBottom="l">
           <Button variant="text" text={i18n.translate('DataUpload.PrivacyPolicyLink')} onPress={toPrivacyPolicy} />
         </Box>
       </ScrollView>

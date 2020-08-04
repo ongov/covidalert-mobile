@@ -1,5 +1,8 @@
 # COVID Shield Mobile App
 
+For the most up to date COVID Alert code and technical questions please visit:  
+https://github.com/cds-snc/covid-alert-app
+
 This code reflects foundational work by the Ontario Digital Service on the COVID Shield code base. Note that this code contains some known issues which are pending resolution as part of the release of Canada’s national exposure notification app.
 
 ![Lint + Typscript](https://github.com/CovidShield/mobile/workflows/CI/badge.svg)
